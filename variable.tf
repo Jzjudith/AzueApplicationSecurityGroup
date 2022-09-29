@@ -16,8 +16,3 @@ variable "vnet" {
   default     = "devlab-vnet"
 }
 
-variable "cidr" {
-  type        = list(string)
-  description = "Subnets ip address range"
-  default     = ["10.0.1.0/24", "10.0.2.0/24"]
-}

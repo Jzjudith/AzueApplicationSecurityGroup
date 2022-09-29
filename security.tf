@@ -94,12 +94,12 @@ resource "azurerm_network_interface_application_security_group_association" "dbs
   application_security_group_id = azurerm_application_security_group.dbs.id
 }
 
-resource "azurerm_subnet_network_security_group_association" "main1" {
-  subnet_id                 = azurerm_subnet.main[0].id
+resource "azurerm_subnet_network_security_group_association" "web" {
+  subnet_id                 = azurerm_subnet.main["web-subnet"].id
   network_security_group_id = azurerm_network_security_group.main.id
 }
-resource "azurerm_subnet_network_security_group_association" "main2" {
-  subnet_id                 = azurerm_subnet.main[1].id
+resource "azurerm_subnet_network_security_group_association" "dbs" {
+  subnet_id                 = azurerm_subnet.main["db-subnet"].id
   network_security_group_id = azurerm_network_security_group.main.id
 }
 
