@@ -9,7 +9,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   # network_interface_ids           = [element(azurerm_network_interface.main.*.id, count.index), ]
   network_interface_ids           = [element([for nic in azurerm_network_interface.main : nic.id], count.index), ]
   disable_password_authentication = false
-  user_data                       = filebase64("${path.module}/scripts/scrip1.sh")
+  user_data                       = filebase64("${path.module}/scripts/script1.sh")
 
   os_disk {
     caching              = "ReadWrite"

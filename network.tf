@@ -59,7 +59,7 @@ resource "azurerm_network_interface" "main" {
     subnet_id                     = element([for subnet in azurerm_subnet.main : subnet.id], count.index)
     private_ip_address_allocation = "Dynamic"
     # public_ip_address_id          = element(azurerm_public_ip.main.*.id, count.index)
-    public_ip_address_id = element([for ip in azurerm_public_ip.main : ip.id], count.index)
+    public_ip_address_id          = element([for ip in azurerm_public_ip.main : ip.id], count.index)
   }
 
   depends_on = [
